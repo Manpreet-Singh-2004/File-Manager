@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="sha256.js"></script>
-    <script src="script.js"></script>
+    <!-- <script src="sjcl.js"></script>
+    <script src="script.js"></script> -->
 </head>
 <body>
     <form id="loginForm" onsubmit="submitForm(); return false;">
@@ -15,5 +15,7 @@
         <input type="password" id="password" name="password">
         <button type="submit">Login</button>
     </form>
+    <script type="text/javascript" src="sjcl-master/sjcl.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
