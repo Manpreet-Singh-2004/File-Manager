@@ -1,4 +1,4 @@
-{
-    "username": "d94977d0b49cc13e20b2a6557bbe197a57f4d91d6cefc7e2d45ce67eb459fabe",
-    "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4"
-}
+[
+  {"username": "Max", "password": "pass"},
+  {"username": "John", "password": "secret"}
+]
