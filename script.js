@@ -23,6 +23,7 @@ function submitForm() {
 
         localStorage.setItem("username", usernameInput.value);
         window.open("dashboard.html");
+        window.close();
 
     } else {
         alert("Login failed. Please try again.");

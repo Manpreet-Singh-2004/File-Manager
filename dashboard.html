@@ -5,18 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Management</title>
 </head>
+<link href="https://css.gg/css?=" rel="stylesheet">
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
+<link rel="stylesheet" href="dashstyle.css">
 <body>
-    <h1 id="welcome">Hello</h1>
+    <h1 id="welcome"></h1>
 
-    <br>
+    <div class="profile-icon" onclick="openSidebar()">
+        <i class="gg-profile"></i>
+    </div>
 
-    <button onclick="logout()">Logout</button>
+    <!-- Side bar for the profile 💀💀🫡 -->
+
+    <div id="mySidebar" class="sidebar">
+        <a href="" class="gg-close-r" onclick="closeSidebar()"></a>
+        <a href="" onclick="logout()">Logout</a>
+        <a href="chat.html">Chatting</a>
+    </div>
+
+
+<!-- File Adding, Bottom -->
+    <div class="Add">
+        <form class="form" id="form">
+            <input type="file" id="file" multiple> <br>
+            <button type="submit">Upload Files</button>
+        </form>
+    </div>
+
+    <!-- Left Div -->
+    <div class="Folders" id="foldersContainer">
+
+    </div>
 
     <script src="dashboardjs.js"></script>
     <script src="script.js"></script>
-
-    <button>
-        <a href="chat.html">Chatting</a>
-    </button>
 </body>
 </html>

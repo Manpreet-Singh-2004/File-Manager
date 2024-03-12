@@ -1,0 +1,96 @@
+body{
+    background: url(dashboardbackground.avif);
+}
+.profile-icon {
+    font-size: 24px; /* Adjust the size as needed */
+    color: #333; /* Set the color as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    left: 10px; /* Adjust the left position as needed */
+    top: 10px; /* Adjust the top position as needed */
+    float: right;
+    padding: 20px;
+    /* z-index: 2; Ensure the icon is on top */
+}
+
+.sidebar {
+    width: 0;
+    height: 100vh;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 32px 8px 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    /* color: black; */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    /* color: #f1f1f1; */
+    color: black;
+}
+/* Close */
+.gg-close-r {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px;
+    border: 2px solid;
+    border-radius: 4px
+}
+.gg-close-r::after,
+.gg-close-r::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    top: 8px;
+    left: 3px
+}
+.gg-close-r::after {
+    transform: rotate(-45deg)
+}
+
+/* Add Files */
+.Add {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* .Add input[type=file] {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px; 
+} */
+
+
+/* Left Div */
+.Folders {
+    width: 400px;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
