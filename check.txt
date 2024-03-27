@@ -1,4 +1,0 @@
-[
-  {"username": "Max", "password": "pass"},
-  {"username": "John", "password": "secret"}
-]

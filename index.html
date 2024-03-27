@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <center>
+        <h1 style="background-color: aquamarine; padding: 10px;">File Upload</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileInput" multiple>
+            <br> <br>
+            <button type="submit" style="padding: 5px; background-color: blue; color: white;">Upload</button>
+        </form>
+        <br>
+        <!-- Go to dashboard.html instead of the localhost -->
+        <a href="dashboard.html">Go back</a> 
+    </center>
+
+    <!-- Display uploaded files -->
+    <h2>Uploaded Files:</h2>
+    <ul id="fileList"></ul>
+
+    <script>
+        // Fetch uploaded files from the server and display them
+        fetch('/files')
+            .then(response => response.json())
+            .then(files => {
+                const fileList = document.getElementById('fileList');
+                files.forEach(file => {
+                    const listItem = document.createElement('li');
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = `/uploads/${file}`;
+                    downloadLink.textContent = file;
+                    listItem.appendChild(downloadLink);
+                    fileList.appendChild(listItem);
+                });
+            })
+            .catch(error => console.error('Error fetching files:', error));
+    </script>
+</body>
+</html>

@@ -1,16 +1,22 @@
 // Function to set the welcome message
-var storedUsername = localStorage.getItem("username");
+var username = localStorage.getItem("username");
 function setWelcomeMessage() {
 
-    if (storedUsername === null) {
+    if (username === null) {
         // Redirect to the verification HTML if there is no stored username
         window.location.href = "Verification.html";
     } else {
         // Set the welcome message if the username is present
-        document.getElementById("welcome").textContent = "Welcome " + storedUsername;
+        document.getElementById("welcome").textContent = "Welcome " + username;
     }
     
 }
+
+// ------------Folder
+// var name = localStorage.getItem('username');
+
+// Send an HTTP request to the server to create a folder with the name
+// ------------Folder
 
 function logout() {
     localStorage.removeItem("username");
@@ -20,84 +26,71 @@ function logout() {
 // Profile Side-Bar
 function openSidebar() {
     document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("mySidebar").style.display = "block";
 }
 
 function closeSidebar() {
-    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("mySidebar").style.display = "none";
 }
 
-
-
 // Left Div
-
-// document.addEventListener('DOMContentLoaded', async function() {
-//     const foldersContainer = document.getElementById('foldersContainer');
-
-//     // Request user permission to access the directory
-//     try {
-//         const directoryHandle = await window.showDirectoryPicker();
-
-//         // Read the contents of the directory
-//         for await (const entry of directoryHandle.values()) {
-//             if (entry.kind === 'directory') {
-//                 // Create a folder item
-//                 const folderItem = document.createElement('div');
-//                 folderItem.classList.add('FolderItem');
-
-//                 // Create a folder icon
-//                 const folderIcon = document.createElement('div');
-//                 folderIcon.classList.add('FolderIcon');
-//                 folderIcon.innerHTML = '<i class="gg-folder"></i>';
-//                 folderItem.appendChild(folderIcon);
-
-//                 // Create a folder name
-//                 const folderName = document.createElement('div');
-//                 folderName.classList.add('FolderName');
-//                 folderName.textContent = entry.name;
-//                 folderItem.appendChild(folderName);
-
-//                 // Add the folder item to the container
-//                 foldersContainer.appendChild(folderItem);
-//             }
-//         }
-//     } catch (error) {
-//         console.error('Error accessing directory:', error);
-//     }
-// });
-
-// Files Upload
-
-// Not working 
-// -->
-// const myForm = document.getElementById("formjs");
-// const inpFile = document.getElementById("inpFile");
-// myForm.addEventListener("submit", e => {
-//     e.preventDefault();
-//     const endpoint = "files.php";
-//     const formData = new FormData();
-
-//     formData.append("inpFile", inpFile.files[0]);
-//     fetch(endpoint, {
-//         method: "get",
-//         body: formData
-//     }).catch(console.error);
-// });
-// -->
-
-document.getElementById("file").addEventListener("submit", function(e){
-    e.preventDefault();
-    const userFile = document.getElementById("files").files[0];
+function uploadFiles() {
+    window.open("http://localhost:5500")
     
-    const formData = new FormData();
-    formData.append("user-file", userFile, "user-file.jpg");
+}
+// Node dosent have the capability to use localStorage to store user name 💀
 
-    fetch("https://httpbin.org/post", {
-        method: "POST",
-        body: formData,
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-})
+function openSmallWindow(url) {
+    // Set window dimensions
+    const width = 400;
+    const height = 300;
+    // Calculate the position of the window to center it on the screen
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+    // Specify window features
+    const features = `width=${500},height=${500},left=${500},top=${500},resizable=yes,scrollbars=yes`;
+
+    // Open the new window with the specified URL and features
+    window.open(url, '_blank', features);
+}
+var LSDarkMode = localStorage.getItem("darkmode");
+var darkMode = LSDarkMode === "1";
+function DarkMode(){
+    var body = document.body;
+    var addDiv = document.querySelector('.Add');
+    var addDiv2 = document.querySelector('.profile-icon');
+    if (!darkMode) {
+        // Switch to dark mode
+        localStorage.setItem("darkmode", "1")
+        body.style.backgroundImage = 'url("wal/dark.jpg")'; // Apply background image
+        body.style.color = 'white'; // Dark mode text color
+        addDiv.style.backgroundColor = 'rgba(15, 15,15, 0.8';
+        addDiv2.style.backgroundColor = 'rgba(255, 255, 255)';
+    } else {
+        // Switch to light mode
+        localStorage.setItem("darkmode", "0")
+        body.style.backgroundImage = 'url("dashboardbackground.avif")'; // Remove background image
+        body.style.color = 'black'; // Light mode text color
+        addDiv.style.backgroundColor = 'rgba(255, 255, 255, 0.8';
+    }
+    darkMode = !darkMode;
+}
+
+function fetchFiles() {
+    fetch('/list-files') // Endpoint to fetch the list of files
+        .then(response => response.json())
+        .then(files => {
+            const foldersContainer = document.getElementById('foldersContainer');
+            foldersContainer.innerHTML = ''; // Clear previous content
+            
+            files.forEach(file => {
+                const fileElement = document.createElement('div');
+                fileElement.textContent = file;
+                foldersContainer.appendChild(fileElement);
+            });
+        })
+        .catch(error => console.error('Error fetching files:', error));
+}
+// ----
 
 setWelcomeMessage();
