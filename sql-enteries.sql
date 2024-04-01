@@ -1,1 +1,0 @@
-INSERT INTO Users (Username, Password, Email) VALUES ('admin', 'Mani@194580', 'Manpreet.singh18@student.ufv.ca');

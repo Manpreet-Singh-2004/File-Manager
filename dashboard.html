@@ -6,6 +6,7 @@
     <title>File Management</title>
 </head>
 <link href="https://css.gg/css?=" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'>
 <link rel="stylesheet" href="dashstyle.css">
 <body>
@@ -14,46 +15,25 @@
     <div class="profile-icon" onclick="openSidebar()">
         <i class="gg-profile"></i>
     </div>
-    <button onclick="DarkMode()">Dark mode</button>
-    <button onclick="fetchFiles()">Reload</button>
-
-    <!-- Side bar for the profile 💀💀🫡 -->
+    <div onclick="DarkMode()">
+        <i class="fas dark-mode-icon fa-moon"></i>
+    </div>
 
     <div id="mySidebar" class="sidebar">
-        <a href="" class="gg-close-r" onclick="closeSidebar()"></a>
-        <a href="" onclick="logout()">Logout</a>
-        <a href="chat.html">Chatting</a>
-        <button onclick="DarkMode()">Dark mode</button>
+        <a href="#" class="gg-close-r" onclick="closeSidebar()"></a>
+        <a href="#" onclick="logout()">Logout</a>
     </div>
 
 
-<!-- File Adding, Bottom -->
     <div class="Add">
-
-            <!-- <input type="file" id="file" multiple> <br> -->
-            <!-- <button type="submit">Upload Files</button> -->
             <h2>File Upload</h2>
             <button onclick="uploadFiles()">Upload</button>
-            <!-- <a href="http://localhost:5500" target="_blank">new</a> -->
-            <!-- <a href="index.html">here</a> -->
-
     </div>
-
-    <!-- Left Div -->
-    <div class="Folders" id="foldersContainer">
-
-
-    </div>
-
+    
     <center>
+        <input type="file" id="fileName">
+        <button onclick="openFile()">Open File</button>
         <div id="fileContents">
-
-            <div class="PDF">
-                <object data="uploads/1710614326980-Manpreet Singh Resume.pdf" type="application/pdf" width="750" height="600">
-                    alt : <a href="uploads/1710614326980-Manpreet Singh Resume.pdf">your.pdf</a>
-                </object>
-             </div>
-        </div>
     </center>
 
     <script src="dashboardjs.js"></script>

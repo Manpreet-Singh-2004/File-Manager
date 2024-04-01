@@ -1,15 +1,14 @@
 body{
-    background: url(dashboardbackground.avif);
+    background: url(wal/dashboardbackground.avif);
 }
 .profile-icon {
-    font-size: 24px; /* Adjust the size as needed */
-    color: #333; /* Set the color as needed */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    left: 10px; /* Adjust the left position as needed */
-    top: 10px; /* Adjust the top position as needed */
+    font-size: 24px;
+    color: #333; 
+    cursor: pointer; 
+    left: 10px; 
+    top: 10px; 
     float: right;
     padding: 20px;
-    /* z-index: 2; Ensure the icon is on top */
 }
 
 .sidebar {
@@ -79,18 +78,4 @@ body{
     margin: 20px;
     text-align: center;
     box-sizing: border-box;
-}
-
-/* .Add input[type=file] {
-    display: block;
-    margin: 0 auto;
-    margin-top: 20px; 
-} */
-
-
-/* Left Div */
-.Folders {
-    width: 400px;
-    height: 100vh;
-    background-color: #f0f0f0;
 }
